@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows10.0.18362.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Version>2021.2.0</Version>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Authors>Nickvision</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\15Back.png" />
+    <None Remove="Resources\About.png" />
+    <None Remove="Resources\Bug.png" />
+    <None Remove="Resources\Changelog.png" />
+    <None Remove="Resources\Dark.png" />
+    <None Remove="Resources\Exit.png" />
+    <None Remove="Resources\icon.ico" />
+    <None Remove="Resources\icon.png" />
+    <None Remove="Resources\Light.png" />
+    <None Remove="Resources\MusicFolder.png" />
+    <None Remove="Resources\Next.png" />
+    <None Remove="Resources\Pause.png" />
+    <None Remove="Resources\Play.png" />
+    <None Remove="Resources\Previous.png" />
+    <None Remove="Resources\Reload.png" />
+    <None Remove="Resources\Repeat.png" />
+    <None Remove="Resources\Shuffle.png" />
+    <None Remove="Resources\Stop.png" />
+    <None Remove="Resources\Update.png" />
+    <None Remove="Resources\Volume.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluent.Ribbon" Version="8.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.3" />
+    <PackageReference Include="Nickvision.MVVM" Version="2021.1.10" />
+    <PackageReference Include="Nickvision.Update" Version="2021.1.0" />
+    <PackageReference Include="TagLibSharp" Version="2.2.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Resource Include="Resources\15Back.png" />
+    <Resource Include="Resources\About.png" />
+    <Resource Include="Resources\Bug.png" />
+    <Resource Include="Resources\Changelog.png" />
+    <Resource Include="Resources\Dark.png" />
+    <Resource Include="Resources\Exit.png" />
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\Light.png" />
+    <Resource Include="Resources\MusicFolder.png" />
+    <Resource Include="Resources\Next.png" />
+    <Resource Include="Resources\Pause.png" />
+    <Resource Include="Resources\Play.png" />
+    <Resource Include="Resources\Previous.png" />
+    <Resource Include="Resources\Reload.png" />
+    <Resource Include="Resources\Repeat.png" />
+    <Resource Include="Resources\Shuffle.png" />
+    <Resource Include="Resources\Stop.png" />
+    <Resource Include="Resources\Update.png" />
+    <Resource Include="Resources\Volume.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <SplashScreen Include="Resources\icon.png" />
+  </ItemGroup>
+	
+</Project>
