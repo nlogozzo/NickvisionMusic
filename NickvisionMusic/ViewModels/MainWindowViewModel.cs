@@ -44,8 +44,7 @@ namespace NickvisionMusic.ViewModels
         public MusicPlayer MusicPlayer { get; private set; }
         public DelegateCommand<object> ExitCommand { get; private set; }
         public DelegateCommand<object> PreviousCommand { get; private set; }
-        public DelegateCommand<MusicFile> PlayCommand { get; private set; }
-        public DelegateCommand<object> PauseCommand { get; private set; }
+        public DelegateCommand<MusicFile> PlayPauseCommand { get; private set; }
         public DelegateCommand<object> StopCommand { get; private set; }
         public DelegateCommand<object> NextCommand { get; private set; }
         public DelegateCommand<object> FifteenSecondsBackCommand { get; private set; }
@@ -76,8 +75,7 @@ namespace NickvisionMusic.ViewModels
             MusicPlayer = new MusicPlayer();
             ExitCommand = new DelegateCommand<object>(Exit);
             PreviousCommand = new DelegateCommand<object>(Previous);
-            PlayCommand = new DelegateCommand<MusicFile>(Play);
-            PauseCommand = new DelegateCommand<object>(Pause);
+            PlayPauseCommand = new DelegateCommand<MusicFile>(PlayPause);
             StopCommand = new DelegateCommand<object>(Stop);
             NextCommand = new DelegateCommand<object>(Next);
             FifteenSecondsBackCommand = new DelegateCommand<object>(FifteenSecondsBack);
@@ -168,23 +166,24 @@ namespace NickvisionMusic.ViewModels
         private void Previous(object parameter) => MusicPlayer.Previous();
 
         /// <summary>
-        /// Plays the currently selected song
+        /// Plays or pauses the currently selected song
         /// </summary>
         /// <param name="selectedMusicFile">The MusicFile selected from the DataGrid</param>
-        private void Play(MusicFile selectedMusicFile)
+        private void PlayPause(MusicFile selectedMusicFile)
         {
-            if(selectedMusicFile != null)
+            if(MusicPlayer.IsPlaying)
             {
-                MusicPlayer.Source = selectedMusicFile;
+                MusicPlayer.Pause();
             }
-            MusicPlayer.Play();
+            else
+            {
+                if (selectedMusicFile != null)
+                {
+                    MusicPlayer.Source = selectedMusicFile;
+                }
+                MusicPlayer.Play();
+            }
         }
-
-        /// <summary>
-        /// Pauses the currently selected song
-        /// </summary>
-        /// <param name="parameter"></param>
-        private void Pause(object parameter) => MusicPlayer.Pause();
 
         /// <summary>
         /// Stops the currently selected song
@@ -260,7 +259,7 @@ namespace NickvisionMusic.ViewModels
         /// <summary>
         /// Displays information about this program
         /// </summary>
-        private async Task Changelog(object parameter) => await _contentDialogService.ShowAsync("- Initial Release", "What's New?", "OK");
+        private async Task Changelog(object parameter) => await _contentDialogService.ShowAsync("- Combined Play and Pause buttons into one Play/Pause button\n- Added support for media keyboard buttons", "What's New?", "OK");
 
         /// <summary>
         /// Handles when the window closes

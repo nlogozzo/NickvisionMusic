@@ -35,12 +35,12 @@ namespace NickvisionMusic.Models
         private Timer _timer;
         private Random _random;
         private MusicFile _source;
-        private bool _isPlaying;
         private bool _isShuffle;
         private bool _isRepeat;
         private List<string> _shuffleList;
 
         public MusicLibrary MusicLibrary { get; private set; }
+        public bool IsPlaying { get; private set; }
         public ObservableCollection<MusicFile> AllMusicFiles => new ObservableCollection<MusicFile>(MusicLibrary.Files);
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace NickvisionMusic.Models
             _random = new Random();
             _shuffleList = new List<string>();
             MusicLibrary = new MusicLibrary();
-            _isPlaying = false;
+            IsPlaying = false;
             IsShuffle = false;
             IsRepeat = false;
             Volume = 50;
@@ -179,11 +179,11 @@ namespace NickvisionMusic.Models
         /// </summary>
         public void Play()
         {
-            if(!_isPlaying && Source != null)
+            if(!IsPlaying && Source != null)
             {
                 _timer.Start();
                 _musicPlayer.Play();
-                _isPlaying = true;
+                IsPlaying = true;
             }
         }
 
@@ -192,11 +192,11 @@ namespace NickvisionMusic.Models
         /// </summary>
         public void Pause()
         {
-            if(_isPlaying)
+            if(IsPlaying)
             {
                 _musicPlayer.Pause();
                 _timer.Stop();
-                _isPlaying = false;
+                IsPlaying = false;
                 OnPropertyChanged("Position");
                 OnPropertyChanged("PositionString");
             }
@@ -210,7 +210,7 @@ namespace NickvisionMusic.Models
             Position = 0;
             _musicPlayer.Stop();
             _timer.Stop();
-            _isPlaying = false;
+            IsPlaying = false;
             OnPropertyChanged("Position");
             OnPropertyChanged("PositionString");
         }

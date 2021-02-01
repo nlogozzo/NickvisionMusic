@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows10.0.18362.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>2021.2.0</Version>
+    <Version>2021.2.1</Version>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Authors>Nickvision</Authors>
   </PropertyGroup>
@@ -21,8 +21,7 @@
     <None Remove="Resources\Light.png" />
     <None Remove="Resources\MusicFolder.png" />
     <None Remove="Resources\Next.png" />
-    <None Remove="Resources\Pause.png" />
-    <None Remove="Resources\Play.png" />
+    <None Remove="Resources\PlayPause.png" />
     <None Remove="Resources\Previous.png" />
     <None Remove="Resources\Reload.png" />
     <None Remove="Resources\Repeat.png" />
@@ -53,8 +52,7 @@
     <Resource Include="Resources\Light.png" />
     <Resource Include="Resources\MusicFolder.png" />
     <Resource Include="Resources\Next.png" />
-    <Resource Include="Resources\Pause.png" />
-    <Resource Include="Resources\Play.png" />
+    <Resource Include="Resources\PlayPause.png" />
     <Resource Include="Resources\Previous.png" />
     <Resource Include="Resources\Reload.png" />
     <Resource Include="Resources\Repeat.png" />

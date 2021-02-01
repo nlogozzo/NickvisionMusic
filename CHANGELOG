@@ -1,4 +1,8 @@
 Changelog for Nickvision Music
 =====
+V2021.2.1:
+    - Combined Play and Pause buttons into one Play/Pause button
+    - Added support for media keyboard buttons
+
 V2021.2.0:
     - Initial Release

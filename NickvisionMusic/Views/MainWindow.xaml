@@ -29,7 +29,10 @@
         mc:Ignorable="d" Title="{Binding Title}" Icon="../Resources/icon.ico" ui:WindowHelper.UseModernWindowStyle="True"
         Name="Windows" Width="800" Height="600" WindowState="Maximized">
     <Window.InputBindings>
-        
+        <KeyBinding Key="MediaPreviousTrack" Command="{Binding PreviousCommand}"/>
+        <KeyBinding Key="MediaPlayPause" Command="{Binding PlayPauseCommand}"/>
+        <KeyBinding Key="MediaStop" Command="{Binding StopCommand}"/>
+        <KeyBinding Key="MediaNextTrack" Command="{Binding NextCommand}"/>
     </Window.InputBindings>
 
     <i:Interaction.Triggers>
@@ -52,8 +55,7 @@
                 <fluent:RibbonGroupBox Header="Music Control">
                     <nv:MediaPositionTracker Position="{Binding MusicPlayer.Position, Mode=TwoWay}" PositionString="{Binding MusicPlayer.PositionString}" Duration="{Binding MusicPlayer.Duration}" DurationString="{Binding MusicPlayer.DurationString}"/>
                     <fluent:Button Header="Previous" LargeIcon="../Resources/Previous.png" Command="{Binding PreviousCommand}"/>
-                    <fluent:Button Header="Play" LargeIcon="../Resources/Play.png" Command="{Binding PlayCommand}"/>
-                    <fluent:Button Header="Pause" LargeIcon="../Resources/Pause.png" Command="{Binding PauseCommand}"/>
+                    <fluent:Button Header="Play/Pause" LargeIcon="../Resources/PlayPause.png" Command="{Binding PlayPauseCommand}"/>
                     <fluent:Button Header="Stop" LargeIcon="../Resources/Stop.png" Command="{Binding StopCommand}"/>
                     <fluent:Button Header="Next" LargeIcon="../Resources/Next.png" Command="{Binding NextCommand}"/>
                 </fluent:RibbonGroupBox>
@@ -107,7 +109,7 @@
                 </DataGrid.Columns>
 
                 <DataGrid.InputBindings>
-                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding PlayCommand}" CommandParameter="{Binding ElementName=listMusicFiles, Path=SelectedItem}"/>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding PlayPauseCommand}" CommandParameter="{Binding ElementName=listMusicFiles, Path=SelectedItem}"/>
                 </DataGrid.InputBindings>
             </DataGrid>
         </Grid>
